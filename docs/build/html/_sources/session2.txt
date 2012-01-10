@@ -20,3 +20,8 @@ to see what's going on.
 
 ``git commit -v``
 
+Interatcive add:
+
+``git add -p``
+
+
