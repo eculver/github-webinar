@@ -25,3 +25,23 @@ Interatcive add:
 ``git add -p``
 
 
+
+git status
+
+git diff -diff-filter=M
+
+A = Added
+C = Copied
+D = Deleted
+M = Modified
+R = Renamed
+T = Type changed
+U = Unmerged
+X = Unknown
+B = Broken pairing
+
+Normal ``git diff`` -- highlights whitespace changes.
+
+``git diff -w`` -- surpresses whitespace changes.
+
+``git diff --color-words HEAD``
