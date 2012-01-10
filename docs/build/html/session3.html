@@ -1,0 +1,183 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Session 3 (10:00a - 10:50a) &mdash; Github Webinar - 2012.01.10 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Github Webinar - 2012.01.10 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Session 2 (9:00a - 9:50a)" href="session2.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="session2.html" title="Session 2 (9:00a - 9:50a)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Github Webinar - 2012.01.10 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="session-3-10-00a-10-50a">
+<h1>Session 3 (10:00a - 10:50a)<a class="headerlink" href="#session-3-10-00a-10-50a" title="Permalink to this headline">¶</a></h1>
+<p>Viewing history</p>
+<div class="section" id="git-log">
+<h2>Git log<a class="headerlink" href="#git-log" title="Permalink to this headline">¶</a></h2>
+<p>No options: reverse chronological order. Automatically piped to pager.</p>
+<p>Rarely used with no options.</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--stat</span></tt> &#8211; shows files that participted in each commit. Commit hash, author, date, files, +/- for lines per change.</p>
+<p>Extremely tedius to page our way back through changes.</p>
+<p>Milestone marker for class: if we stopped now, you should have a pretty good basic workflow for getting around day-to-day.</p>
+<p>More advanced usage:</p>
+<div class="highlight-python"><pre>``git log --diff-filter=A`` -- Same filters as ``git diff``</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--pretty=raw</span></tt> &#8211; raw, full, fuller, and even custom with sprintf</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-3</span></tt> &#8211; limits number of commits to 3 in this case.</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--author=evan&#64;wiredrive.com</span></tt> &#8211; all commits authored by me.</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--author=Evan</span></tt> &#8211; all commits by me by using my name.</p>
+</div>
+<div class="section" id="ignoring-files">
+<h2>Ignoring Files<a class="headerlink" href="#ignoring-files" title="Permalink to this headline">¶</a></h2>
+<p>Flat text file called .gitignore</p>
+<p>Per project: in project root</p>
+<p>Example:</p>
+<div class="highlight-python"><pre>*.log
+*.tmp</pre>
+</div>
+<p>Ignores all files with .log and .tmp exensions.</p>
+<p><em>Note</em>
+<tt class="docutils literal"><span class="pre">git</span> <span class="pre">status</span> <span class="pre">-u</span></tt> &#8211; show me all files, don&#8217;t simplify, lists out all files below folders.</p>
+<p>Applies, at evaluation time in memory.</p>
+<p>You can add .gitignore files to subfolders, behave like .gitconfig:</p>
+<p>Top has weakest precidence, bottom has highest precidence.</p>
+<p>They&#8217;re evaluated as if concatenated end-to-end.</p>
+<p>.gitignore can exist in any number of directories and subdirectories with no limit.</p>
+<p>Git does not track empty directories.</p>
+<p>How do you track empty directories? &#8220;holding it open with a toothpick.&#8221;</p>
+<p>Usually the easiest way is to touch a .gitignore in that directory.</p>
+<p>Preconfigured .gitignore files: <a class="reference external" href="https://github.com/github/gitignore">https://github.com/github/gitignore</a></p>
+<p>System-wide?</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.excudesfile</span> <span class="pre">&quot;~/.gitignore&quot;</span></tt></p>
+<p>Have to enable, can&#8217;t just create the file.</p>
+</div>
+<div class="section" id="removing-files">
+<h2>Removing Files<a class="headerlink" href="#removing-files" title="Permalink to this headline">¶</a></h2>
+<p>Closure to the add command</p>
+<p>Basis for refactoring and renaming</p>
+<p><tt class="docutils literal"><span class="pre">rm</span> <span class="pre">&lt;filename&gt;</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">rm</span> <span class="pre">&lt;filename&gt;</span></tt> &#8211; put deletion into staging, if file doensn&#8217;t exist, just adds deletion to staging area</p>
+<dl class="docutils">
+<dt><em>example</em>::</dt>
+<dd>rm &lt;files&gt;
+git add -u .</dd>
+</dl>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-u</span></tt> grabs all removed files.</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">rm</span> <span class="pre">&lt;fileame&gt;</span></tt> removes the file and stages that file.</p>
+<p>If you want it back:</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span></tt> &#8211; we&#8217;ll come back to this, but it returns everything that is tracked to their last committed state. Blows away everything that&#8217;s staged.</p>
+<p><em>note:</em> untracked files are untouched.</p>
+<p>There is no <tt class="docutils literal"><span class="pre">move</span></tt> primitive in git.</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">mv</span> <span class="pre">&lt;src&gt;</span> <span class="pre">&lt;dst&gt;</span></tt> &#8211; a &#8216;composed&#8217; command for convenience.</p>
+<p>Same as:</p>
+<div class="highlight-python"><pre>``mv &lt;src&gt; &lt;dst&gt; ; git add &lt;dst&gt;``</pre>
+</div>
+<p>Rename flagged as soon as file is re-added. Git is good at detecting similar content.</p>
+<p>There&#8217;s a pretty funny discussion on the git mailinglist as to why there is no move primitive. Might be worth a look. (See slides).</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--stat</span> <span class="pre">-M</span></tt> &#8211; shows renames in history.</p>
+<p>Mindset should be that no matter how accurate we are when committing to history, there&#8217;s always a chance that the committer has been mistaken at commit time. Just move it to the display layer.</p>
+<p>Q: Can you set a threshold on the similarity filter?
+A: Yes, <tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--stat</span> <span class="pre">-M90</span></tt>.</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-2</span> <span class="pre">--stat</span> <span class="pre">-C</span> <span class="pre">--find-copies-harder</span></tt> &#8211; Tells it to look harder for copy detection on top of rename detection.</p>
+<p>This stuff can be used for the simplification of merges and is relevant for refactoring.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Session 3 (10:00a - 10:50a)</a><ul>
+<li><a class="reference internal" href="#git-log">Git log</a></li>
+<li><a class="reference internal" href="#ignoring-files">Ignoring Files</a></li>
+<li><a class="reference internal" href="#removing-files">Removing Files</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="session2.html"
+                        title="previous chapter">Session 2 (9:00a - 9:50a)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/session3.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="session2.html" title="Session 2 (9:00a - 9:50a)"
+             >previous</a> |</li>
+        <li><a href="index.html">Github Webinar - 2012.01.10 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Evan Culver.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

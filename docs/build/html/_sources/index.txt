@@ -11,6 +11,11 @@ Github Webinar - 2012.01.10
 
    session1
    session2
+   session3
+
+Gist created by Matt with his notes::
+
+https://gist.github.com/gists/1589518
 
 Indices and tables
 ==================
