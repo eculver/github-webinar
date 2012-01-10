@@ -1,0 +1,145 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Session 5 (2:15p - 2:15p) &mdash; Github Webinar - 2012.01.10 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Github Webinar - 2012.01.10 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Session 4 (12:00p - 2:00p)" href="session4.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="session4.html" title="Session 4 (12:00p - 2:00p)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Github Webinar - 2012.01.10 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="session-5-2-15p-2-15p">
+<h1>Session 5 (2:15p - 2:15p)<a class="headerlink" href="#session-5-2-15p-2-15p" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="creating-a-funky-situation">
+<h2>Creating a funky situation<a class="headerlink" href="#creating-a-funky-situation" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">evanculver2</span></tt></p>
+<p>&lt;edit a particular line&gt;</p>
+<p>&lt;add, commit&gt;</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">evanculver</span></tt></p>
+<p>&lt;edit same line as before&gt;</p>
+<p>&lt;add, commit&gt;</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">evanculver2</span></tt></p>
+<p>EEEEK &#8211;&gt; merge conflict</p>
+<p>&#8220;Make the file appear as a logical combination of those two disparate pieces&#8221;</p>
+</div>
+<div class="section" id="pull-requests-and-workflow">
+<h2>Pull requests and workflow<a class="headerlink" href="#pull-requests-and-workflow" title="Permalink to this headline">¶</a></h2>
+<p>Pull requests aren&#8217;t limited to cross-repository merges. Pull requests make perfect sense within a single repository for forced code-review.</p>
+</div>
+<div class="section" id="rebase">
+<h2>Rebase<a class="headerlink" href="#rebase" title="Permalink to this headline">¶</a></h2>
+<p>Simulates members taking turns working? Actually not stupid, just sounds ridiculous.</p>
+<p>Branching: you usually wait as long as possible to branch, and you try to get your changes merged back in as soon as possible (because your VCS sucks).</p>
+<p>Rebasing rewrites history, keeps a consistent, straight history.</p>
+<p>Merge commits become integration commits by layering merges on to the end via fast-forward (instead of merge made by recursive).</p>
+<p>Fast-forward means that only one of the two branches changed since the branch occurred.</p>
+<p>No merge commits are created.</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">feature/some-feature</span></tt>
+<tt class="docutils literal"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">master</span></tt></p>
+<p>&#8220;Take all of the stuff in the feature branch, hibernate it, delete it, start it at the end of master then replay all of the work in the feature branch on master.&#8221;</p>
+<p>&#8220;Rework your work so that it makes more sense for your team.&#8221;</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">feature/some-feature</span></tt>
+<tt class="docutils literal"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">-i</span> <span class="pre">HEAD~5</span></tt></p>
+<p>&#8220;Rebase seems like a tool to replay history.&#8221;</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Session 5 (2:15p - 2:15p)</a><ul>
+<li><a class="reference internal" href="#creating-a-funky-situation">Creating a funky situation</a></li>
+<li><a class="reference internal" href="#pull-requests-and-workflow">Pull requests and workflow</a></li>
+<li><a class="reference internal" href="#rebase">Rebase</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="session4.html"
+                        title="previous chapter">Session 4 (12:00p - 2:00p)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/session5.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="session4.html" title="Session 4 (12:00p - 2:00p)"
+             >previous</a> |</li>
+        <li><a href="index.html">Github Webinar - 2012.01.10 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Evan Culver.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

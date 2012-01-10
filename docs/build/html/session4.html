@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Session 4 (12:00p - 2:00p) &mdash; Github Webinar - 2012.01.10 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Github Webinar - 2012.01.10 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Session 3 (10:00a - 10:50a)" href="session3.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="session3.html" title="Session 3 (10:00a - 10:50a)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Github Webinar - 2012.01.10 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="session-4-12-00p-2-00p">
+<h1>Session 4 (12:00p - 2:00p)<a class="headerlink" href="#session-4-12-00p-2-00p" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="questions">
+<h2>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Can you reset an individual file?</li>
+</ul>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">--</span> <span class="pre">&lt;filename&gt;</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">HEAD</span> <span class="pre">--</span> <span class="pre">source/</span></tt></p>
+<p>What&#8217;s the difference between</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">--</span> <span class="pre">&lt;filename&gt;</span></tt></p>
+<p>and</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">HEAD</span> <span class="pre">--</span> <span class="pre">&lt;filename&gt;</span></tt></p>
+<p>Nothing, HEAD is assumed.</p>
+<ul class="simple">
+<li>Other questions on collaboration, binaries and design...</li>
+</ul>
+</div>
+<div class="section" id="netork-interactions">
+<h2>Netork Interactions<a class="headerlink" href="#netork-interactions" title="Permalink to this headline">¶</a></h2>
+<p>Everything begins locally in git then layers on things like remotes and collaboration.</p>
+<p>Almost all activities happen offline. Offline activities have to be pushed to remotes.</p>
+<div class="section" id="cloning">
+<h3>Cloning<a class="headerlink" href="#cloning" title="Permalink to this headline">¶</a></h3>
+<p>four primary protocols: file, git, ssh, http.</p>
+</div>
+<div class="section" id="file">
+<h3>file<a class="headerlink" href="#file" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">file:///path/to/project</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">/path/to/project</span></tt></p>
+<p>cloning a local file is like checkout, but clone grabs all history for a repository.</p>
+<p><a class="reference external" href="file:///path/to/project">file:///path/to/project</a> fires up the &#8216;networking&#8217; code within git whereas just /path/to/project looks directly at the filesystem.</p>
+</div>
+<div class="section" id="git">
+<h3>git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git://server/project.git</span></tt></p>
+<p>Almost always read-only. Can be made writable, but in most cases it&#8217;s read-only.</p>
+</div>
+<div class="section" id="http-dumb">
+<h3>http (dumb)<a class="headerlink" href="#http-dumb" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">http://server/project.git</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://server/project.git</span></tt></p>
+<p>Used to be the real differntiator between git and mercurial. Dumb version is insanely slow and inefficient.</p>
+</div>
+<div class="section" id="https-smart">
+<h3>https (smart)<a class="headerlink" href="#https-smart" title="Permalink to this headline">¶</a></h3>
+<p>Much faster and offers progress. Mostly handled on the server side.</p>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>Cloning and collaborating:</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://githubstudents:students987&#64;github.com/githubstudents/hellogitworld.git</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">evanculver</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-u</span></tt> &#8211; tells git to track it.</p>
+<p>&lt;BREAK&gt;</p>
+<p>Example of git&#8217;s speed by adding 3000 files and pushing them to remote.</p>
+<p>After pushing, we can almost instantly get references to those files, but they&#8217;re just references.</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">origin</span></tt>
+<tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">thousands</span></tt></p>
+<p>When checking out, the state of the filesystem is being modified. By switching between the <tt class="docutils literal"><span class="pre">thousands</span></tt> branch and mine, &gt; 3000 files are being created/destroyed</p>
+<p>&#8220;Once mastered, the concepts of local, remote and upstream branches, the rest falls into place&#8221;</p>
+<p>Local and remote live on your box.</p>
+<p>Typing <tt class="docutils literal"><span class="pre">git</span> <span class="pre">fetch</span></tt>, your local cache is updated against what&#8217;s upstream or remote to you.</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">fetch</span></tt> === <tt class="docutils literal"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">origin</span></tt></p>
+<div class="section" id="push">
+<h3>Push<a class="headerlink" href="#push" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">&lt;remote&gt;</span></tt></p>
+</div>
+<div class="section" id="pull">
+<h3>Pull<a class="headerlink" href="#pull" title="Permalink to this headline">¶</a></h3>
+<p>0 collaboration up until this point. The integration point.</p>
+<p>Combination: retrieves upstream objects and then merges and then commits merge to the local branch.</p>
+</div>
+<div class="section" id="excercise-merging-in-remotes">
+<h3>Excercise: Merging in remotes<a class="headerlink" href="#excercise-merging-in-remotes" title="Permalink to this headline">¶</a></h3>
+<p>Merging:</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">remotes/origin/chance</span></tt></p>
+<p>Pushing back up to remote:</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">push</span></tt></p>
+<p>Reviewing any commits in the entire remotes tree:</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-2</span> <span class="pre">remotes/origin/chance</span></tt></p>
+</div>
+<div class="section" id="remotes">
+<h3>Remotes<a class="headerlink" href="#remotes" title="Permalink to this headline">¶</a></h3>
+<p>Simiply &#8216;bookmarks&#8217; or pointers.</p>
+<p>Origin is a remote you get by default.</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></tt></p>
+<p>Q: Why two entries?
+A: One inbound and one outbound. Almost always the same, but can be different in a very unique situation. For example, you may want to pull all code over ssh but push all over http.</p>
+</div>
+<div class="section" id="adding-a-remote">
+<h3>Adding a remote<a class="headerlink" href="#adding-a-remote" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">&lt;remotename&gt;</span> <span class="pre">&lt;remotepath&gt;</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">matthewongithub</span> <span class="pre">https://github.com/matthewmccullough/hellogitworld</span></tt></p>
+<p><em>note</em>: Remote branches are locally immutable.</p>
+<p>We have to make a local branch for anything we would like to change.</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">kenkil</span></tt></p>
+<p>Git is smart enough to know that you probably wanted to actually checkout the remote (<tt class="docutils literal"><span class="pre">remotes/origin/kenkil</span></tt>).</p>
+<p>If you look at <tt class="docutils literal"><span class="pre">.git/config</span></tt>, you will see various <tt class="docutils literal"><span class="pre">[branch</span> <span class="pre">*]</span></tt> sections which define the remote/tracking portion of this.</p>
+<p>Git will get mad if the branch name is ambiguous:</p>
+<p>error: refspec... blah blah</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">&lt;localbranch&gt;</span> <span class="pre">--track</span> <span class="pre">remotes/origin/richzurad</span></tt></p>
+</div>
+<div class="section" id="prune">
+<h3>Prune<a class="headerlink" href="#prune" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">prune</span> <span class="pre">&lt;remotename&gt;</span></tt> &#8211; only removes old branches that no longer exist on the remote, has to be given an explicit remote name.</p>
+</div>
+<div class="section" id="diff-ing-against-remotes-or-any-two-things">
+<h3>Diff&#8217;ing against remotes (or any two things)<a class="headerlink" href="#diff-ing-against-remotes-or-any-two-things" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">origin/ericg</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">origin/ericg</span> <span class="pre">origin/richzurad</span></tt></p>
+</div>
+<div class="section" id="more-exercises">
+<h3>More exercises<a class="headerlink" href="#more-exercises" title="Permalink to this headline">¶</a></h3>
+<p>&lt;edit, add, commit&gt;</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--soft</span> <span class="pre">HEAD~1</span></tt></p>
+<p>Tells git to roll back 1 commit, leaving the change in tact.</p>
+<p>If you have already pushed, the game has changed entirely.</p>
+<p>You can do the same as above, but force the push &#8211; the consequences of forcing the push causes the graph of the commits changes as your peers see them.
+Furthermore, you then have to ask what other people may be basing their work on. It may cause some really counter-intuitive output and attempts to merge in changes.</p>
+<p>A better approach is to push another commit by &#8216;reverting&#8217;:</p>
+<p><tt class="docutils literal"><span class="pre">git</span> <span class="pre">revert</span> <span class="pre">&lt;commithash&gt;</span></tt> &#8211; Make a new commit that negates what was just committed. Always safe because it&#8217;s always forward moving which is exactly why forcing commits and changing history/graphi is usually always bad.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Session 4 (12:00p - 2:00p)</a><ul>
+<li><a class="reference internal" href="#questions">Questions</a></li>
+<li><a class="reference internal" href="#netork-interactions">Netork Interactions</a><ul>
+<li><a class="reference internal" href="#cloning">Cloning</a></li>
+<li><a class="reference internal" href="#file">file</a></li>
+<li><a class="reference internal" href="#git">git</a></li>
+<li><a class="reference internal" href="#http-dumb">http (dumb)</a></li>
+<li><a class="reference internal" href="#https-smart">https (smart)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exercises">Exercises</a><ul>
+<li><a class="reference internal" href="#push">Push</a></li>
+<li><a class="reference internal" href="#pull">Pull</a></li>
+<li><a class="reference internal" href="#excercise-merging-in-remotes">Excercise: Merging in remotes</a></li>
+<li><a class="reference internal" href="#remotes">Remotes</a></li>
+<li><a class="reference internal" href="#adding-a-remote">Adding a remote</a></li>
+<li><a class="reference internal" href="#prune">Prune</a></li>
+<li><a class="reference internal" href="#diff-ing-against-remotes-or-any-two-things">Diff&#8217;ing against remotes (or any two things)</a></li>
+<li><a class="reference internal" href="#more-exercises">More exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="session3.html"
+                        title="previous chapter">Session 3 (10:00a - 10:50a)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/session4.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="session3.html" title="Session 3 (10:00a - 10:50a)"
+             >previous</a> |</li>
+        <li><a href="index.html">Github Webinar - 2012.01.10 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Evan Culver.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>
