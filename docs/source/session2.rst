@@ -20,15 +20,13 @@ to see what's going on.
 
 ``git commit -v``
 
-Interatcive add:
+Interatcive add::
 
 ``git add -p``
 
+Filtered Diff::
 
-
-git status
-
-git diff -diff-filter=M
+``git diff -diff-filter=M``
 
 A = Added
 C = Copied
@@ -45,3 +43,5 @@ Normal ``git diff`` -- highlights whitespace changes.
 ``git diff -w`` -- surpresses whitespace changes.
 
 ``git diff --color-words HEAD``
+
+``git add -A`` -- adds any new files whereas ``git add .`` will just add modified.
